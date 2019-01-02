@@ -1,0 +1,8 @@
+<h3> Symptom: {{ s.symptom_text }} </h3>
+<p> Possible diagnoses: </p>
+<ul>
+  {% for d in s.diagnosis_set.all %}
+    <li>{{ d.diagnosis_text }}</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'health:home' %}"> Return to homepage </a>

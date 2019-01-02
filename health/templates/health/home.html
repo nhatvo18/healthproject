@@ -1,0 +1,30 @@
+<h3> Welcome to our health app </h3>
+
+{% if error_message %}
+  <p> <strong> {{ error_message }} </strong> </p>
+{% endif %}
+
+<script>
+  function getURL() {
+    var input = document.getElementById("url").value;
+    
+    var url = "{% url 'health:home' %}" + input.toLowerCase();
+    location.href = url;
+    return false;
+  }
+</script>
+
+<form onSubmit="return getURL();">
+  Enter symptom: <input type="text" name="url" id="url"> <input type="submit" value="Look for diagnoses">
+</form>
+
+{% if common_symptoms %}
+  <p> Commonly searched symptoms: </p>
+  <ul>
+  {% for symptom in common_symptoms %}
+    <li><a href="{% url 'health:diagnoses' symptom.id %}"> {{ symptom.symptom_text }} </a></li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p> No symptom information saved in system. </p>
+{% endif %}
