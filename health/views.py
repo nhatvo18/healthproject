@@ -2,19 +2,18 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render
 
 from .models import Symptom, Diagnosis
-# Create your views here
 
 # Home page
 def home(request):
     common_symptoms = Symptom.objects.all()[:5]
     context = { 'common_symptoms': common_symptoms }
-    return render(request, 'health/home.html' ,context)
+    return render(request, 'health/home.html', context)
 
 # Diagnoses page
-def diagnoses(request, symptom_id):
+def diagnoses(request, symptom):
     # Check if symptom exists in database
     try:
-        s = Symptom.objects.get(pk=symptom_id)
+        s = Symptom.objects.get(symptom_text=symptom)
     except Symptom.DoesNotExist:
         raise Http404("Symptom does not exist in system.")
     context = { 's': s }

@@ -1,20 +1,21 @@
-<h3> Welcome to our health app </h3>
-
-{% if error_message %}
-  <p> <strong> {{ error_message }} </strong> </p>
-{% endif %}
-
 <script>
-  function getURL() {
+  // Given user input, replace any white space with '-',
+  // then append it to the home URL; go to URL
+  function getURL_given_input() {
     var input = document.getElementById("url").value;
-    
     var url = "{% url 'health:home' %}" + input.toLowerCase();
     location.href = url;
     return false;
   }
 </script>
 
-<form onSubmit="return getURL();">
+<h3> Welcome to our health app </h3>
+
+{% if error_message %}
+  <p> <strong> {{ error_message }} </strong> </p>
+{% endif %}
+
+<form onSubmit="return getURL_given_input();">
   Enter symptom: <input type="text" name="url" id="url"> <input type="submit" value="Look for diagnoses">
 </form>
 
@@ -22,7 +23,7 @@
   <p> Commonly searched symptoms: </p>
   <ul>
   {% for symptom in common_symptoms %}
-    <li><a href="{% url 'health:diagnoses' symptom.id %}"> {{ symptom.symptom_text }} </a></li>
+    <li><a href="{% url 'health:diagnoses' symptom.symptom_text %}"> {{ symptom.symptom_text }} </a></li>
   {% endfor %}
   </ul>
 {% else %}
