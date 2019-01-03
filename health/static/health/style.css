@@ -1,0 +1,15 @@
+p, h3, ul, li, form {
+  color: gainsboro;
+}
+
+a:link, a:visited {
+  color: gainsboro;
+}
+
+a:hover {
+  color: dimgrey;
+}
+
+body {
+  background: white url("images/background.gif") no-repeat;
+}
