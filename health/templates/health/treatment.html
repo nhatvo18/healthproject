@@ -1,11 +1,22 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'health/style.css' %}">
+<!DOCTYPE html>
+<html>
 
-<h3> {{ d.diagnosis_text }} </h3>
-<p> Treatment: </p>
-<ul>
-  {% for t in d.treatment_set.all %}
-    <li>{{ t.treatment_text }}</li>
-  {% endfor %}
-</ul>
-<a href="{% url 'health:home' %}"> Return to homepage </a>
+  <head>
+    <title> {{d.diagnosis_text}} </title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'health/style.css' %}">
+  </head>
+
+  </body>
+    <h2> {{ d.diagnosis_text }} </h2>
+    <hr>
+    <p> Treatment: </p>
+    <ul>
+      {% for t in d.treatment_set.all %}
+        <li>{{ t.treatment_text }}</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'health:home' %}"> Return to homepage </a>
+  </body>
+
+</html>
