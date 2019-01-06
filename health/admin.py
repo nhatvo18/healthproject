@@ -1,5 +1,10 @@
 from django.contrib import admin
 from .models import Symptom, Diagnosis, Treatment
 
-# Register your models here.
-admin.site.register(Symptom)
+class SymptomAdmin(admin.ModelAdmin):
+    fields = ['symptom_text']
+
+# Register models
+admin.site.register(Symptom, SymptomAdmin)
+admin.site.register(Diagnosis)
+admin.site.register(Treatment)
