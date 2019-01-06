@@ -21,6 +21,8 @@
   <body>
     <h1> Welcome to our health app </h1>
     <hr>
+    <p> Case study: <a href="{% url 'health:case' %}"> generate a case (not working yet) </a> </p>
+    <hr>
     {% if error_message %}
       <p> <strong> {{ error_message }} </strong> </p>
     {% endif %}

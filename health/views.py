@@ -28,3 +28,7 @@ def treatment(request, diagnosis):
         raise Http404("Diagnosis does not exist in system.")
     context = { 'd': d }
     return render(request, 'health/treatment.html', context)
+
+# Generate a case
+def case(request):
+    return render(request, 'health/case.html')
