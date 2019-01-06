@@ -13,7 +13,7 @@
     <p> Possible diagnoses: </p>
     <ul>
       {% for d in s.diagnosis_set.all %}
-        <li> {{ d.diagnosis_text }} </li>
+        <li> <a href="{% url 'health:treatment' d.diagnosis_text %}"> {{ d.diagnosis_text }} </a> </li>
       {% endfor %}
     </ul>
     <a href="{% url 'health:home' %}"> Return to homepage </a>

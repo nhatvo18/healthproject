@@ -23,7 +23,7 @@ def diagnoses(request, symptom):
 def treatment(request, diagnosis):
     # Check if diagnosis exists in database
     try:
-        d = Diagnosis.objects.get(treatment_text=diagnosis)
+        d = Diagnosis.objects.get(diagnosis_text=diagnosis)
     except Diagnosis.DoesNotExist:
         raise Http404("Diagnosis does not exist in system.")
     context = { 'd': d }
