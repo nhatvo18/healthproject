@@ -32,7 +32,7 @@
     </form>
 
     {% if common_symptoms %}
-      <p> Commonly searched symptoms: </p>
+      <p> Some common symptoms: </p>
       <ul>
       {% for symptom in common_symptoms %}
         <li><a href="{% url 'health:diagnoses' symptom.symptom_text %}"> {{ symptom.symptom_text }} </a></li>

@@ -19,6 +19,7 @@ Finished features:
 
 Unfinished features:
 - Generate a case consisting of related symptoms
+    Follow this: http://www.oscecases.com/osce-generator/
 
 Room for improvement:
 - Polish admin page for more efficient database management
