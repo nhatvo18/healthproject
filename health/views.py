@@ -14,7 +14,7 @@ def home(request):
 def diagnoses(request, symptom):
     # Check if symptom exists in database
     try:
-        s = Symptom.objects.get(symptom_text=symptom)
+        s = Symptom.objects.get(symptom_text__icontains=symptom)
     except Symptom.DoesNotExist:
         raise Http404("Symptom does not exist in system.")
     context = { 's': s }
