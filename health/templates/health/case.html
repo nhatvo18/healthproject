@@ -9,7 +9,14 @@
   </head>
 
   <body>
-    <p> Generate a case page </p>
+    <p> Case: </p>
+    {% if random_symtoms %}
+    <ul>
+      {% for s in random_symtoms %}
+        <li> {{ s.symptom_text }} </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
     <a href="{% url 'health:home' %}"> Return to homepage </a>
   </body>
 

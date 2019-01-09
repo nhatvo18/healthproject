@@ -1,5 +1,6 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
+import random
 
 from .models import Symptom, Diagnosis
 
@@ -30,5 +31,14 @@ def treatment(request, diagnosis):
     return render(request, 'health/treatment.html', context)
 
 # Generate a case
+# Pick a random diagnosis, then pick 5 random symptoms
+# of that diagnosis
 def case(request):
-    return render(request, 'health/case.html')
+    try:
+        all_diagnoses = Diagnosis.objects.all()
+    except all_diagnoses.DoesNotExist:
+        raise Http404("Database is empty.")
+    random_diagnosis = random.choice(all_diagnoses)
+    symptoms = random_diagnosis.symptoms.all()
+    random_symtoms = random.sample(list(symptoms), min(5, len(list(symptoms))))
+    return render(request, 'health/case.html', { 'random_symtoms': random_symtoms })
