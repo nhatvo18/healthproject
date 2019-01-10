@@ -1,14 +1,19 @@
 from django.db import models
 
-# Create your models here.
+class Location(models.Model):
+    location_text = models.CharField(max_length=200)
+    def __str__(self):
+        return self.location_text
+    class Meta:
+        ordering = ('location_text',)
+
 
 class Symptom(models.Model):
     # Symptom
     symptom_text = models.CharField(max_length=200)
-
+    locations = models.ManyToManyField(Location)
     def __str__(self):
         return self.symptom_text
-
     class Meta:
         ordering = ('symptom_text',)
 
@@ -18,10 +23,8 @@ class Diagnosis(models.Model):
     # One diagnosis can link to many symptoms; one symptom can link to many diagnoses
     # i.e. many-to-many relationship
     symptoms = models.ManyToManyField(Symptom)
-
     def __str__(self):
         return self.diagnosis_text
-
     class Meta:
         ordering = ('diagnosis_text',)
 
@@ -31,9 +34,7 @@ class Treatment(models.Model):
     # One diagnosis can link to many treatments; one treatment can link to many diagnoses
     # i.e. many-to-many relationship
     diagnoses = models.ManyToManyField(Diagnosis)
-
     def __str__(self):
         return self.treatment_text
-
     class Meta:
         ordering = ('treatment_text',)
