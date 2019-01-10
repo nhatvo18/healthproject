@@ -17,8 +17,19 @@ def diagnoses(request, symptom):
         s = Symptom.objects.get(symptom_text__icontains=symptom)
     except Symptom.DoesNotExist:
         raise Http404("Symptom does not exist in system.")
+    except Symptom.MultipleObjectsReturned:
+        return many_symptoms_found(request, symptom)
     context = { 's': s }
     return render(request, 'health/diagnoses.html', context)
+    # return HttpResponse('Diagnosis page')
+
+# If search returns many symptoms
+def many_symptoms_found(request, symptom):
+    try:
+        s = Symptom.objects.filter(symptom_text__icontains=symptom)
+    except Symptom.DoesNotExist:
+        raise Http404("Cannot find any symptoms.")
+    return render(request, 'health/search_suggest.html', { 's': s })
 
 # Treatment page
 def treatment(request, diagnosis):
