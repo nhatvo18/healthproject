@@ -10,12 +10,16 @@
   </body>
     <h2> {{ d.diagnosis_text }} </h2>
     <hr>
+    {% if d.treatment_set.all %}
     <p> Treatment: </p>
     <ul>
       {% for t in d.treatment_set.all %}
         <li>{{ t.treatment_text }}</li>
       {% endfor %}
     </ul>
+    {% else %}
+      <p> Diagnosis has not been linked to any treatment in our database. </p>
+    {% endif %}
     <a href="{% url 'health:home' %}"> Return to homepage </a>
   </body>
 
