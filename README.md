@@ -21,6 +21,8 @@ Working features:
 - Generate a case consisting of (up to) 5 randoms symptoms
 
 Room for improvement:
+- Improve search engine
+- Add more attributes to symptoms (ie. where/when symptoms occur)
 - Polish admin page for more efficient database management
 - Generate a case feature needs to be more robust
 Follow this: http://www.oscecases.com/osce-generator/
