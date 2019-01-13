@@ -7,7 +7,7 @@ This app aims to assist medical school students with their work.
 Built on Django 2.1
 By Nhat Vo
 
-For more info on Django installation, see Djangodoc.md
+For more info on Django installation, see DjangoInstall.txt
 
 ---------------------------------------------------------------
 

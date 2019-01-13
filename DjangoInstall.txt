@@ -10,6 +10,8 @@ How to install Django on Mac:
     - navigate to an empty folder, ie. ~/Desktop/NewProject
     - $ pipenv install django
 
+To install and run this application:
+
 5. Download this GitHub repo into that folder, ie. ~/Desktop/NewProject
 
 6.
