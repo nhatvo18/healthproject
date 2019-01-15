@@ -7,7 +7,13 @@ This app aims to assist medical school students with their work.
 Built on Django 2.1
 By Nhat Vo
 
+
+---------------------------------------------------------------
+Docs:
+
 For more info on Django installation, see DjangoInstall.txt
+
+For more info on Django forms, see https://django-formtools.readthedocs.io/en/latest/
 
 ---------------------------------------------------------------
 
@@ -27,3 +33,5 @@ Room for improvement:
 - Polish admin page for more efficient database management
 - Generate a case feature needs to be more robust
 Follow this: http://www.oscecases.com/osce-generator/
+
+---------------------------------------------------------------

@@ -6,15 +6,18 @@ How to install Django on Mac:
 
 3. Install pipenv: $ pip3 install pipenv
 
+
 4. Install Django 2.1 (automatically along with a virtual environment):
     - navigate to an empty folder, ie. ~/Desktop/NewProject
     - $ pipenv install django==2.1
 
 To install and run this application:
 
-5. Download this GitHub repo into that folder, ie. ~/Desktop/NewProject
+5. Install Django form tools: $ pipenv install django-formtools 
 
-6.
+6. Download this GitHub repo into that folder, ie. ~/Desktop/NewProject
+
+7.
   - Navigate to your project folder, ie. ~/Desktop/NewProject
   - $ pipenv shell
   - Navigate to the directory that contains 'manage.py'
