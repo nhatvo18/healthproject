@@ -5,6 +5,7 @@ from formtools.wizard.views import SessionWizardView
 import random
 
 from .models import Symptom, Diagnosis
+from . import forms
 
 # FORMS = [("address", myapp.forms.AddressForm),
 #          ("paytype", myapp.forms.PaymentChoiceForm),
@@ -23,6 +24,7 @@ def home(request):
     return render(request, 'health/home.html', context)
 
 class ContactWizard(SessionWizardView):
+    form_list = [forms.ContactForm1, forms.ContactForm2]
     def done(self, form_list, form_dict, **kwargs):
         # Do something here
         return HttpResponseRedirect('health/test.html')

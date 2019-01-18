@@ -14,9 +14,12 @@ Docs:
 For more info on Django installation, see DjangoInstall.txt
 
 For more info on Django forms, see https://django-formtools.readthedocs.io/en/latest/
+---------------------------------------------------------------
+To do:
+
+Fix search do process form data instead of using value from URL
 
 ---------------------------------------------------------------
-
 Status:
 
 Working features:
