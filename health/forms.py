@@ -1,10 +1,8 @@
 from django import forms
 
-class first_symptom(forms.Form):
-    symptom1 = forms.CharField(max_length=200)
+class ContactForm1(forms.Form):
+    subject = forms.CharField(max_length=100)
+    sender = forms.EmailField()
 
-class second_symptom(forms.Form):
-    symptom2 = forms.CharField(max_length=200)
-
-class third_symptom(forms.Form):
-    symptom3 = forms.CharField(max_length=200)
+class ContactForm2(forms.Form):
+    message = forms.CharField(widget=forms.Textarea)
